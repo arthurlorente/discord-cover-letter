@@ -32,6 +32,7 @@
   --scrollbar-track: #2e3338;
   --shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05), 0 2px 0 rgba(4, 4, 5, 0.05);
   --role-candidate: #d89129;
+  --role-reference: #5865F2;
   --interactive-hover: #dcddde;
 }
 
@@ -337,6 +338,10 @@ main .content-container .post-container .post-author {
   background-color: var(--role-candidate);
 }
 
+.reference-popout .header-bar.role-reference {
+  background-color: var(--role-reference);
+}
+
 .reference-popout .text-category {
   color: var(--header-secondary);
 }
@@ -389,15 +394,22 @@ main .content-container .post-container .post-author {
   height: 12px;
   border-radius: 50%;
   margin: 0 0.25rem;
-  background-color: #5865F2;
 }
 
 .role-badge.role-candidate::before {
   background-color: var(--role-candidate);
 }
 
+.role-badge.role-reference::before {
+  background-color: var(--role-reference);
+}
+
 .role-candidate-text {
   color: var(--role-candidate);
+}
+
+.role-reference-text {
+  color: var(--role-reference);
 }
 
 @media (max-width: 1024px) {
