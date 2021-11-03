@@ -1,0 +1,418 @@
+@font-face {
+  font-family: 'Ginto Normal';
+  src: url('./fonts/Ginto_Discord_210416/ABC Ginto Normal Variable/ABCGintoNormalVariable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Whitney Book';
+  src: url('./fonts/02_Whitney_Paragraphs/Whitney-Book-Bas.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Whitney Semibold';
+  src: url('./fonts/02_Whitney_Paragraphs/Whitney-Semibold-Bas.otf') format('opentype');
+}
+
+:root {
+  --background-main: #36393f;
+  --background-side: #2f3136;
+  --channels-default: #8e9297;
+  --header-primary: #ffffff;
+  --header-secondary: #b9bbbe;
+  --text-normal: #dcddde;
+  --text-muted: #72767d;
+  --text-link: #00aff4;
+  --background-secondary: #2f3136;
+  --background-secondary-alt: #292b2f;
+  --background-floating: #18191c;
+  --background-modifier-hover: rgba(79, 84, 92, 0.16);
+  --background-modifier-selected: rgba(79, 84, 92, 0.32);
+  --background-message-hover: rgba(4, 4, 5, 0.07);
+  --scrollbar-thumb: #202225;
+  --scrollbar-track: #2e3338;
+  --shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05), 0 2px 0 rgba(4, 4, 5, 0.05);
+  --role-candidate: #d89129;
+  --interactive-hover: #dcddde;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 240px 1fr 240px;
+  background-color: var(--background-main);
+  color: var(--text-normal);
+  height: 100vh;
+  font-family: 'Whitney Book', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2 {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  box-shadow: var(--shadow);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  font-family: 'Ginto Normal', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+main {
+  height: 100%;
+  overflow: hidden;
+}
+
+main header {
+  padding-left: 0.5rem;
+}
+
+main header svg {
+  color: rgb(114, 118, 125);
+  margin: 0 0.5rem;
+}
+
+main .content {
+  height: calc(100% - 48px);
+  overflow-y: scroll;
+  line-height: 1.375em;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+main .content::-webkit-scrollbar {
+  width: 1rem;
+}
+
+main .content::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+}
+
+main .content::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track);
+  margin-bottom: 0.5rem;
+}
+
+main .content::-webkit-scrollbar-thumb, main .content::-webkit-scrollbar-track {
+  border: 0.25rem solid transparent;
+  background-clip: padding-box;
+  border-radius: 0.5rem;
+}
+
+main .content::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+@supports (scrollbar-width: thin) {
+  main .content {
+    margin-right: 0.25rem;
+  }
+}
+
+main .content time {
+  font-size: 0.75em;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+}
+
+main .content .content-section {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 0.125rem 3rem 0.125rem 4.5rem;
+}
+
+main .content .content-section:hover {
+  background-color: var(--background-message-hover);
+}
+
+main .content .content-section::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: url('./arthur.png');
+  background-size: contain;
+  left: 1rem;
+  top: 0.25rem;
+}
+
+main .content .content-section .content-author {
+  display: block;
+  font-weight: 600;
+}
+
+.video-container {
+  overflow: hidden;
+  padding: 0.5rem 1rem 1rem 0.75rem;
+  border-radius: 0.25rem;
+  border-left: 0.25rem solid red;
+  background-color: var(--background-secondary);
+  max-width: calc(400px + 2rem);
+}
+
+.video-container .video-platform {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--header-secondary);
+}
+
+.video-container .video-channel {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.video-container .video-title {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--text-link);
+  font-weight: 600;
+}
+
+.video-container .video-player {
+  margin-top: 1rem;
+  display: block;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+@supports (aspect-ratio: 1) {
+  .video-container .video-player {
+    aspect-ratio: calc(400 / 225);
+    height: auto;
+  }
+}
+
+main .content .content-section:first-of-type {
+  margin-top: 1rem;
+}
+
+main .content .content-section:last-of-type {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  body {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .references {
+    display: none;
+  }
+}
+
+.sidebar, .references {
+  background-color: var(--background-side);
+  color: var(--channels-default);
+}
+
+.sidebar header {
+  padding: 0 1rem;
+}
+
+.sidebar .menu-item {
+  width: 100%;
+  height: 34px;
+}
+
+.sidebar li svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  margin-right: 6px;
+}
+
+.sidebar li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.container-padding {
+  padding: 0.5rem;
+}
+
+.references article {
+  height: 44px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.menu-item.selected {
+  background-color: var(--background-modifier-selected);
+  color: white;
+}
+
+.menu-item:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--interactive-hover);
+}
+
+.references article .name {
+  font-family: 'Whitney Book', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 20px;
+}
+
+.references article .avatar-container {
+  margin-right: 0.75rem;
+  position: relative;
+}
+
+.references article .avatar-container::after {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: rgb(59, 165, 93);
+  border-radius: 50%;
+  content: '';
+  bottom: -3px;
+  right: -3px;
+  border: 3px solid var(--background-side);
+}
+
+.references article .avatar-container img {
+  border-radius: 50%;
+}
+
+.text-category {
+  display: block;
+  padding: 1rem 0.5rem 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-family: 'Ginto Normal', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.references header {
+  background-color: var(--background-main);
+}
+
+.popout-anchor {
+  position: relative;
+}
+
+.reference-popout {
+  width: 300px;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  transform: translateX(-300px);
+  background-color: var(--background-floating);
+  display: none;
+  cursor: default;
+  overflow: hidden;
+}
+
+.popout-anchor.selected .reference-popout {
+  display: block;
+}
+
+.popout-anchor.selected .menu-item {
+  background-color: var(--background-modifier-selected);
+  color: white;
+}
+
+.reference-popout .header-bar {
+  height: 60px;
+  background-color: var(--channels-default);
+}
+
+.reference-popout .header-bar.role-candidate {
+  background-color: var(--role-candidate);
+}
+
+.reference-popout .text-category {
+  color: var(--header-secondary);
+}
+
+.reference-popout-avatar {
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  border: 6px solid var(--background-floating);
+  box-sizing: content-box;
+}
+
+.reference-popout-name {
+  font-family: 'Ginto Normal', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  padding: 4rem 1rem 1rem;
+  color: white;
+}
+
+.contact-container {
+  padding: 0 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 12px;
+}
+
+.roles-container {
+  padding: 0 0.5rem;
+  display: flex;
+}
+
+.role-badge {
+  display: flex;
+  align-items: center;
+  font-family: 'Whitney Semibold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--background-secondary-alt);
+  border-radius: 0.25rem;
+  height: 22px;
+  margin: 0 0.25rem 0.25rem 0;
+  padding: 0.25rem;
+  color: white;
+}
+
+.role-badge::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 0.25rem;
+  background-color: #5865F2;
+}
+
+.role-badge.role-candidate::before {
+  background-color: var(--role-candidate);
+}
+
+.role-candidate-text {
+  color: var(--role-candidate);
+}
