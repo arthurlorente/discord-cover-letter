@@ -94,9 +94,6 @@ main .content-container {
   height: calc(100% - 48px);
   overflow-y: scroll;
   line-height: 1.375em;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 main .content-container::-webkit-scrollbar {
@@ -114,6 +111,7 @@ main .content-container::-webkit-scrollbar-track {
 
 main .content-container::-webkit-scrollbar-thumb, main .content-container::-webkit-scrollbar-track {
   border: 0.25rem solid transparent;
+  -webkit-background-clip: padding-box;
   background-clip: padding-box;
   border-radius: 0.5rem;
 }
@@ -122,8 +120,16 @@ main .content-container::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 
+@supports (scroll-behavior: smooth) {
+  main .content-container {
+    scroll-behavior: smooth;
+  }
+}
+
 @supports (scrollbar-width: thin) {
   main .content-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
     margin-right: 0.25rem;
     padding-right: 0.25rem;
   }
