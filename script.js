@@ -7,7 +7,7 @@ function countReferences() {
 
 function setTime() {
   const timeString = new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-  const timeElements = document.querySelectorAll('.content time');
+  const timeElements = document.querySelectorAll('.content-container .timestamp');
   const timeMessage = `Today at ${timeString}`;
 
   timeElements.forEach((element) => element.textContent = timeMessage);
@@ -42,7 +42,24 @@ function displayReferencePopout() {
   });
 }
 
+function handleNavigation() {
+  const anchors = document.querySelectorAll('.sidebar .menu-item a');
+  const container = document.querySelector('.post-container');
+
+  anchors.forEach((element) => element.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    fetch(element.href)
+      .then(response => response.text())
+      .then(content => {
+        console.log(container.lastElementChild)
+        container.lastElementChild.innerHTML = content;
+      });
+  }));
+}
+
 countReferences();
 setTime();
 highlightActiveRoute();
 displayReferencePopout();
+handleNavigation();

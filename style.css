@@ -89,7 +89,7 @@ main header svg {
   margin: 0 0.5rem;
 }
 
-main .content {
+main .content-container {
   height: calc(100% - 48px);
   overflow-y: scroll;
   line-height: 1.375em;
@@ -98,52 +98,56 @@ main .content {
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
-main .content::-webkit-scrollbar {
+main .content-container::-webkit-scrollbar {
   width: 1rem;
 }
 
-main .content::-webkit-scrollbar-thumb {
+main .content-container::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
 }
 
-main .content::-webkit-scrollbar-track {
+main .content-container::-webkit-scrollbar-track {
   background-color: var(--scrollbar-track);
   margin-bottom: 0.5rem;
 }
 
-main .content::-webkit-scrollbar-thumb, main .content::-webkit-scrollbar-track {
+main .content-container::-webkit-scrollbar-thumb, main .content-container::-webkit-scrollbar-track {
   border: 0.25rem solid transparent;
   background-clip: padding-box;
   border-radius: 0.5rem;
 }
 
-main .content::-webkit-scrollbar-corner {
+main .content-container::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 
 @supports (scrollbar-width: thin) {
-  main .content {
+  main .content-container {
     margin-right: 0.25rem;
   }
 }
 
-main .content time {
+main .content-container .post-container {
+  margin: 1rem 0;
+}
+
+main .content-container .timestamp {
   font-size: 0.75em;
   color: var(--text-muted);
   margin-left: 0.5rem;
 }
 
-main .content .content-section {
+main .content-container .post-container {
   position: relative;
   margin-bottom: 1rem;
   padding: 0.125rem 3rem 0.125rem 4.5rem;
 }
 
-main .content .content-section:hover {
+main .content-container .post-container:hover {
   background-color: var(--background-message-hover);
 }
 
-main .content .content-section::before {
+main .content-container .post-container::before {
   content: '';
   position: absolute;
   width: 40px;
@@ -155,7 +159,7 @@ main .content .content-section::before {
   top: 0.25rem;
 }
 
-main .content .content-section .content-author {
+main .content-container .post-container .post-author {
   display: block;
   font-weight: 600;
 }
@@ -202,28 +206,6 @@ main .content .content-section .content-author {
   .video-container .video-player {
     aspect-ratio: calc(400 / 225);
     height: auto;
-  }
-}
-
-main .content .content-section:first-of-type {
-  margin-top: 1rem;
-}
-
-main .content .content-section:last-of-type {
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 1024px) {
-  body {
-    display: block;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .references {
-    display: none;
   }
 }
 
@@ -415,4 +397,18 @@ main .content .content-section:last-of-type {
 
 .role-candidate-text {
   color: var(--role-candidate);
+}
+
+@media (max-width: 1024px) {
+  body {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .references {
+    display: none;
+  }
 }
