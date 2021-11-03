@@ -124,6 +124,7 @@ main .content-container::-webkit-scrollbar-corner {
 @supports (scrollbar-width: thin) {
   main .content-container {
     margin-right: 0.25rem;
+    padding-right: 0.25rem;
   }
 }
 
