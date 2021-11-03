@@ -52,8 +52,8 @@ function handleNavigation() {
     fetch(element.href)
       .then(response => response.text())
       .then(content => {
-        console.log(container.lastElementChild)
         container.lastElementChild.innerHTML = content;
+        setTime();
       });
   }));
 }
