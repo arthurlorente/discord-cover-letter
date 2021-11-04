@@ -1,6 +1,6 @@
 function countReferences() {
   const referencesCount = document.querySelector('.references-count');
-  const references = document.querySelectorAll('.references article');
+  const references = document.querySelectorAll('.references .menu-item');
 
   referencesCount.textContent = references.length;
 }
@@ -36,7 +36,7 @@ function displayReferencePopout() {
   document.addEventListener('click', (event) => {
     popouts.forEach((element) => element.classList.remove('selected'));
 
-    const clickedItem = event.target.closest('.references .popout-anchor');
+    const clickedItem = event.target.closest('.profiles .popout-anchor');
     if (!clickedItem) return;
     clickedItem.classList.add('selected');
   });

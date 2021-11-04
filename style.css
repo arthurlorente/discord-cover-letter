@@ -32,7 +32,10 @@
   --scrollbar-track: #2e3338;
   --shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05), 0 2px 0 rgba(4, 4, 5, 0.05);
   --role-candidate: #d89129;
-  --role-reference: #5865F2;
+  --role-green: #61E85D;
+  --role-yellow: #EBE263;
+  --role-violet: #905DE8;
+  --role-red: #F25C5C;
   --interactive-hover: #dcddde;
 }
 
@@ -91,7 +94,7 @@ main header svg {
 }
 
 main .content-container {
-  height: calc(100% - 48px);
+  height: calc(100% - 48px - 44px - 2rem);
   display: flex;
   flex-direction: column-reverse;
   overflow-y: scroll;
@@ -137,6 +140,13 @@ main .content-container::-webkit-scrollbar-corner {
   }
 }
 
+main .search-box {
+  margin: 0.5rem 1rem 1.5rem;
+  height: 44px;
+  background-color: #40444b;
+  border-radius: 0.5rem;
+}
+
 main .content-container .post-container {
   margin: 1rem 0;
 }
@@ -163,7 +173,7 @@ main .content-container .post-container::before {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: url('./arthur.png');
+  background: url('./assets/arthur.png');
   background-size: contain;
   left: 1rem;
   top: 0.25rem;
@@ -174,7 +184,7 @@ main .content-container .post-container .post-author {
   font-weight: 600;
 }
 
-.sidebar, .references {
+.sidebar, .profiles {
   background-color: var(--background-side);
   color: var(--channels-default);
 }
@@ -206,7 +216,7 @@ main .content-container .post-container .post-author {
   padding: 0.5rem;
 }
 
-.references article {
+.profiles article {
   height: 44px;
 }
 
@@ -228,17 +238,17 @@ main .content-container .post-container .post-author {
   color: var(--interactive-hover);
 }
 
-.references article .name {
+.profiles article .name {
   font-family: 'Whitney Book', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 20px;
 }
 
-.references article .avatar-container {
+.profiles article .avatar-container {
   margin-right: 0.75rem;
   position: relative;
 }
 
-.references article .avatar-container::after {
+.profiles article .avatar-container::after {
   width: 10px;
   height: 10px;
   position: absolute;
@@ -250,7 +260,7 @@ main .content-container .post-container .post-author {
   border: 3px solid var(--background-side);
 }
 
-.references article .avatar-container img {
+.profiles article .avatar-container img {
   border-radius: 50%;
 }
 
@@ -262,7 +272,7 @@ main .content-container .post-container .post-author {
   font-family: 'Ginto Normal', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.references header {
+.profiles header {
   background-color: var(--background-main);
 }
 
@@ -301,8 +311,20 @@ main .content-container .post-container .post-author {
   background-color: var(--role-candidate);
 }
 
-.reference-popout .header-bar.role-reference {
-  background-color: var(--role-reference);
+.reference-popout .header-bar.role-green {
+  background-color: var(--role-green);
+}
+
+.reference-popout .header-bar.role-yellow {
+  background-color: var(--role-yellow);
+}
+
+.reference-popout .header-bar.role-violet {
+  background-color: var(--role-violet);
+}
+
+.reference-popout .header-bar.role-red {
+  background-color: var(--role-red);
 }
 
 .reference-popout .text-category {
@@ -327,52 +349,85 @@ main .content-container .post-container .post-author {
 }
 
 .contact-container {
-  padding: 0 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 12px;
+  padding-top: 0;
 }
 
-.roles-container {
+.contact-container .text-category:first-child {
+  border-top: 1px solid #262729;
+}
+
+.contact-container .contact-info {
   padding: 0 0.5rem;
+  font-size: 0.8rem;
+}
+
+.contact-container .roles-container {
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
 }
 
 .role-badge {
   display: flex;
   align-items: center;
   font-family: 'Whitney Semibold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 0.8rem;
   font-weight: 500;
   background: var(--background-secondary-alt);
   border-radius: 0.25rem;
   height: 22px;
   margin: 0 0.25rem 0.25rem 0;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   color: white;
 }
 
 .role-badge::before {
   content: '';
-  width: 12px;
-  height: 12px;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 50%;
-  margin: 0 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .role-badge.role-candidate::before {
   background-color: var(--role-candidate);
 }
 
-.role-badge.role-reference::before {
-  background-color: var(--role-reference);
+.role-badge.role-green::before {
+  background-color: var(--role-green);
 }
 
-.role-candidate-text {
+.role-badge.role-yellow::before {
+  background-color: var(--role-yellow);
+}
+
+.role-badge.role-violet::before {
+  background-color: var(--role-violet);
+}
+
+.role-badge.role-red::before {
+  background-color: var(--role-red);
+}
+
+.post-author.role-candidate, .name.role-candidate {
   color: var(--role-candidate);
 }
 
-.role-reference-text {
-  color: var(--role-reference);
+.name.role-green {
+  color: var(--role-green);
+}
+
+.name.role-yellow {
+  color: var(--role-yellow);
+}
+
+.name.role-violet {
+  color: var(--role-violet);
+}
+
+.name.role-red {
+  color: var(--role-red);
 }
 
 @media (max-width: 1024px) {
@@ -384,7 +439,7 @@ main .content-container .post-container .post-author {
     display: none;
   }
 
-  .references {
+  .profiles {
     display: none;
   }
 }
