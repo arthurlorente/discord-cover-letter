@@ -147,27 +147,17 @@ main .search-box {
   border-radius: 0.5rem;
 }
 
-main .content-container .post-container {
-  margin: 1rem 0;
-}
-
-main .content-container .timestamp {
-  font-size: 0.75em;
-  color: var(--text-muted);
-  margin-left: 0.5rem;
-}
-
-main .content-container .post-container {
+.post-container {
   position: relative;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   padding: 0.125rem 3rem 0.125rem 4.5rem;
 }
 
-main .content-container .post-container:hover {
+.post-container:hover {
   background-color: var(--background-message-hover);
 }
 
-main .content-container .post-container::before {
+.post-container::before {
   content: '';
   position: absolute;
   width: 40px;
@@ -179,9 +169,15 @@ main .content-container .post-container::before {
   top: 0.25rem;
 }
 
-main .content-container .post-container .post-author {
+.post-container .post-author {
   display: block;
   font-weight: 600;
+}
+
+.post-container .timestamp {
+  font-size: 0.75em;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
 }
 
 .sidebar, .profiles {
@@ -445,7 +441,7 @@ main .content-container .post-container .post-author {
     display: none;
   }
 
-  main .content-container .post-container {
+  .post-container {
     padding-right: 1rem;
   }
 }
