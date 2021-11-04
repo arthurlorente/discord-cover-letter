@@ -42,9 +42,9 @@ function displayReferencePopout() {
   });
 }
 
-function handleNavigation() {
+function loadContent() {
   const anchors = document.querySelectorAll('.sidebar .menu-item a');
-  const container = document.querySelector('.post-container');
+  const container = document.querySelector('.content-container');
 
   anchors.forEach((element) => element.addEventListener('click', (event) => {
     event.preventDefault();
@@ -52,7 +52,7 @@ function handleNavigation() {
     fetch(element.href)
       .then(response => response.text())
       .then(content => {
-        container.lastElementChild.innerHTML = content;
+        container.innerHTML = content;
         setTime();
       });
   }));
@@ -62,4 +62,4 @@ countReferences();
 setTime();
 highlightActiveRoute();
 displayReferencePopout();
-handleNavigation();
+loadContent();

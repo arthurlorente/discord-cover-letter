@@ -96,7 +96,8 @@ main header svg {
 main .content-container {
   height: calc(100% - 48px - 44px - 2rem);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow-y: scroll;
   line-height: 1.375em;
 }
@@ -149,8 +150,12 @@ main .search-box {
 
 .post-container {
   position: relative;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   padding: 0.125rem 3rem 0.125rem 4.5rem;
+}
+
+.post-container:first-child {
+  margin-top: 1rem;
 }
 
 .post-container:hover {
