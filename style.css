@@ -92,6 +92,8 @@ main header svg {
 
 main .content-container {
   height: calc(100% - 48px);
+  display: flex;
+  flex-direction: column-reverse;
   overflow-y: scroll;
   line-height: 1.375em;
 }
@@ -170,51 +172,6 @@ main .content-container .post-container::before {
 main .content-container .post-container .post-author {
   display: block;
   font-weight: 600;
-}
-
-.video-container {
-  overflow: hidden;
-  padding: 0.5rem 1rem 1rem 0.75rem;
-  border-radius: 0.25rem;
-  border-left: 0.25rem solid red;
-  background-color: var(--background-secondary);
-  max-width: calc(400px + 2rem);
-}
-
-.video-container .video-platform {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: var(--header-secondary);
-}
-
-.video-container .video-channel {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.video-container .video-title {
-  display: block;
-  margin-top: 0.5rem;
-  color: var(--text-link);
-  font-weight: 600;
-}
-
-.video-container .video-player {
-  margin-top: 1rem;
-  display: block;
-  border-radius: 0.5rem;
-  width: 100%;
-  max-width: 400px;
-}
-
-@supports (aspect-ratio: 1) {
-  .video-container .video-player {
-    aspect-ratio: calc(400 / 225);
-    height: auto;
-  }
 }
 
 .sidebar, .references {
