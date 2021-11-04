@@ -432,14 +432,20 @@ main .content-container .post-container .post-author {
 
 @media (max-width: 1024px) {
   body {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: auto;
   }
 
-  .sidebar {
+  main header {
     display: none;
   }
 
   .profiles {
     display: none;
+  }
+
+  main .content-container .post-container {
+    padding-right: 1rem;
   }
 }
