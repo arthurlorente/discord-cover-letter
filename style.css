@@ -1,16 +1,11 @@
 @font-face {
   font-family: 'Ginto Normal';
-  src: url('./fonts/Ginto_Discord_210416/ABC Ginto Normal Variable/ABCGintoNormalVariable.woff2') format('woff2');
+  src: url('./fonts/Ginto-Normal.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Whitney Book';
-  src: url('./fonts/02_Whitney_Paragraphs/Whitney-Book-Bas.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Whitney Semibold';
-  src: url('./fonts/02_Whitney_Paragraphs/Whitney-Semibold-Bas.otf') format('opentype');
+  src: url('./fonts/Whitney-Book.otf') format('opentype');
 }
 
 :root {
@@ -385,9 +380,9 @@ main .search-box {
 .role-badge {
   display: flex;
   align-items: center;
-  font-family: 'Whitney Semibold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
   background: var(--background-secondary-alt);
   border-radius: 0.25rem;
   height: 22px;
@@ -398,8 +393,8 @@ main .search-box {
 
 .role-badge::before {
   content: '';
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 50%;
   margin-right: 0.25rem;
 }
