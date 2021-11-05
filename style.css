@@ -72,7 +72,7 @@ header {
   display: flex;
   align-items: center;
   font-size: 15px;
-  line-height: 20px;
+  line-height: 1;
   font-weight: 600;
   font-family: 'Ginto Normal', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: white;
@@ -97,7 +97,7 @@ main .content-container {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  line-height: 1.375em;
+  line-height: 1.375;
 }
 
 main .content-container::-webkit-scrollbar {
@@ -182,7 +182,7 @@ main .search-box {
 }
 
 .post-container .timestamp {
-  font-size: 0.75em;
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin-left: 0.5rem;
 }
@@ -235,6 +235,7 @@ main .search-box {
   display: flex;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 0.125rem;
   padding: 0 0.5rem;
   border-radius: 0.25rem;
 }
@@ -250,8 +251,7 @@ main .search-box {
 }
 
 .profiles article .name {
-  font-family: 'Whitney Book', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 20px;
+  line-height: 1;
 }
 
 .profiles article .avatar-container {
