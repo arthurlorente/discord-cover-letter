@@ -93,7 +93,6 @@ main .content-container {
   height: calc(100% - 48px - 44px - 2rem);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   overflow-y: scroll;
   line-height: 1.375em;
 }
@@ -142,6 +141,10 @@ main .search-box {
   height: 44px;
   background-color: #40444b;
   border-radius: 0.5rem;
+}
+
+.content-spacer {
+  flex: 1 0 1rem;
 }
 
 .post-container {
