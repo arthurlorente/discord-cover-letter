@@ -42,24 +42,34 @@ function displayReferencePopout() {
   });
 }
 
-function loadContent() {
-  const anchors = document.querySelectorAll('.sidebar .menu-item a');
+function setContent(href) {
   const container = document.querySelector('.content-container');
+
+  fetch(href)
+    .then(response => response.text())
+    .then(content => {
+      container.innerHTML = content;
+      setTime();
+    });
+}
+
+function firstLoad() {
+  const firstAnchor = document.querySelector('.sidebar .menu-item a');
+
+  setContent(firstAnchor.href);
+}
+
+function handleNavigation() {
+  const anchors = document.querySelectorAll('.sidebar .menu-item a');
 
   anchors.forEach((element) => element.addEventListener('click', (event) => {
     event.preventDefault();
-
-    fetch(element.href)
-      .then(response => response.text())
-      .then(content => {
-        container.innerHTML = content;
-        setTime();
-      });
+    setContent(element.href);
   }));
 }
 
+firstLoad();
 countReferences();
-setTime();
+handleNavigation();
 highlightActiveRoute();
 displayReferencePopout();
-loadContent();
