@@ -32,6 +32,9 @@
   --role-violet: #905DE8;
   --role-red: #F25C5C;
   --interactive-hover: #dcddde;
+  --header-height: 48px;
+  --search-box-height: 44px;
+  --search-box-margin: 1.5rem;
 }
 
 * {
@@ -65,7 +68,7 @@ li {
 
 header {
   box-shadow: var(--shadow);
-  height: 48px;
+  height: var(--header-height);
   display: flex;
   align-items: center;
   font-size: 15px;
@@ -90,7 +93,7 @@ main header svg {
 }
 
 main .content-container {
-  height: calc(100% - 48px - 44px - 2rem);
+  height: calc(100% - var(--header-height) - var(--search-box-height) - var(--search-box-margin));
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -137,8 +140,8 @@ main .content-container::-webkit-scrollbar-corner {
 }
 
 main .search-box {
-  margin: 0.5rem 1rem 1.5rem;
-  height: 44px;
+  margin: 0 1rem var(--search-box-margin);
+  height: var(--search-box-height);
   background-color: #40444b;
   border-radius: 0.5rem;
 }
