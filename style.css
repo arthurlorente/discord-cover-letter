@@ -43,6 +43,7 @@
 body {
   display: grid;
   grid-template-columns: 240px 1fr 240px;
+  grid-template-rows: 1fr;
   background-color: var(--background-main);
   color: var(--text-normal);
   height: 100vh;
