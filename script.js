@@ -49,6 +49,7 @@ function setContent(href) {
     .then(response => response.text())
     .then(content => {
       container.innerHTML = content;
+      container.scrollTop = 0;
       setTime();
     });
 }
