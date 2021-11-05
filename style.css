@@ -446,6 +446,12 @@ main .search-box {
   color: var(--role-red);
 }
 
+.emoji {
+  width: 1.375rem;
+  width: 1.375rem;
+  vertical-align: middle;
+}
+
 @media (max-width: 1024px) {
   body {
     display: flex;
