@@ -185,6 +185,14 @@ main .search-box {
   margin-left: 0.5rem;
 }
 
+.post-container a {
+  color: var(--text-link);
+}
+
+.post-container a:hover {
+  text-decoration: underline;
+}
+
 .sidebar, .profiles {
   background-color: var(--background-side);
   color: var(--channels-default);
@@ -347,6 +355,11 @@ main .search-box {
   font-size: 1.25rem;
   padding: 4rem 1rem 1rem;
   color: white;
+}
+
+.reference-popout-name .pronouns {
+  font-size: 1rem;
+  color: var(--channels-default);
 }
 
 .contact-container {
